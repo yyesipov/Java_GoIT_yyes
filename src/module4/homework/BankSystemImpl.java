@@ -1,0 +1,25 @@
+package module4.homework;
+
+public class BankSystemImpl implements BankSystem {
+
+    @Override
+    public void withdrawOfUser(User user, int amount) {
+        Bank userBank = user.g
+
+    }
+
+    @Override
+    public void fundUser(User user, int amount) {
+
+    }
+
+    @Override
+    public void transferMoney(User fromUser, User toUser, int amount) {
+
+    }
+
+    @Override
+    public void paySalary(User user) {
+
+    }
+}
