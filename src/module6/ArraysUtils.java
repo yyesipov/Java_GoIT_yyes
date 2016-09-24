@@ -1,4 +1,4 @@
-public class ArraysUtils {
+public final class ArraysUtils {
 
     @Override
     public String toString() {
