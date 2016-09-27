@@ -18,11 +18,11 @@ public class UserUtils {
             }
         }
         for (User user : compareUsers) {
-            if (user == null) {
+            if (user != null) {
                 counter++;
             }
         }
-        User[] uniqueUsers = new User[users.length - counter];
+        User[] uniqueUsers = new User[counter];
         int i = 0;
         int j = 0;
         for (User user : compareUsers) {

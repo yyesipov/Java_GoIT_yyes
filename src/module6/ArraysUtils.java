@@ -1,9 +1,7 @@
-public final class ArraysUtils {
+package module6;
 
-    @Override
-    public String toString() {
-        return "ArraysUtils{}";
-    }
+public class ArraysUtils {
+
 
     public static int sum(int[] array) {
         int sum = 0;
@@ -75,9 +73,9 @@ public final class ArraysUtils {
     public static int[] reverse(int[] array) {
         int a[] = new int[array.length];
         for (int i = 0; i < array.length / 2; i++) {
-            a[i] = array[i] + array[array.length - 1 - i];
-            a[array.length - 1 - i] = a[i] - array[array.length - 1 - i];
-            a[i] = a[i] - a[array.length - 1 - i];
+            int k = array[i];
+            a[i] = array[array.length - 1 - i];
+            a[array.length - 1 - i] = k;
         }
         return a;
     }
@@ -85,19 +83,19 @@ public final class ArraysUtils {
     public static int[] findEvenElements(int[] array) {
         int preFind[] = new int[array.length];
         int counter = 0;
-        for (int i = 0; i <array.length; i++){
-            if(array[i] != 0){
-              if (array[i] % 2 == 0){
-                  preFind[counter] = array[i];
-                  counter++;
-              }
-           }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != 0) {
+                if (array[i] % 2 == 0) {
+                    preFind[counter] = array[i];
+                    counter++;
+                }
+            }
         }
         int findEvenEl[] = new int[counter];
-        for (int j = 0; j < counter; j++){
-           if (preFind[j] != 0){
-               findEvenEl[j] = preFind[j];
-           }
+        for (int j = 0; j < counter; j++) {
+            if (preFind[j] != 0) {
+                findEvenEl[j] = preFind[j];
+            }
         }
         return findEvenEl;
     }

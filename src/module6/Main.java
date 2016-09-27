@@ -30,4 +30,5 @@ public class Main {
         System.out.println("Delete empty user: " + Arrays.toString(UserUtils.deleteEmptyUser(users)));
     }
 
+
 }
