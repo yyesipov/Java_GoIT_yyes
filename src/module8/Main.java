@@ -22,19 +22,19 @@ public class Main {
 
         UserDAO controller = new UserDAO();
 
-        controller.save(user4);
-        controller.save(user5);
-        controller.save(user6);
-        controller.save(user7);
+        controller.saveUser(user4);
+        controller.saveUser(user5);
+        controller.saveUser(user6);
+        controller.saveUser(user7);
         System.out.println("Users DB: " + controller.getList() + "\n" );
 
-        controller.saveAll(userList);
+        controller.saveAllUser(userList);
         System.out.println(controller.getList() + "\n");
 
-        controller.deleteAll(userList);
+        controller.deleteAllUser(userList);
         System.out.println(controller.getList() + "\n");
 
-        controller.delete(user7);
+        controller.deleteUser(user7);
         System.out.println(controller.getList() + "\n");
 
         System.out.println(controller.get(555) + "\n");

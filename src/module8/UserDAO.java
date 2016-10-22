@@ -3,29 +3,28 @@ package module8;
 import java.util.List;
 
 public class UserDAO<T> extends AbstractDAOImpl<User> {
-    @Override
-    public User save(User user) {
-        return super.save(user);
+
+    public User saveUser(User user) {
+        return save(user);
     }
 
-    @Override
-    public void delete(User user) {
-        super.delete(user);
+    public void deleteUser(User user) {
+        delete(user);
     }
 
-    @Override
-    public void deleteAll(List<User> list) {
-        super.deleteAll(list);
+
+    public void deleteAllUser(List<User> list) {
+        deleteAll(list);
     }
 
-    @Override
-    public void saveAll(List<User> list) {
-        super.saveAll(list);
+
+    public void saveAllUser(List<User> list) {
+        saveAll(list);
     }
 
-    @Override
-    public List<User> getList() {
-        return super.getList();
+
+    public List<User> getListUser() {
+        return getList();
     }
 
     @Override
@@ -46,10 +45,8 @@ public class UserDAO<T> extends AbstractDAOImpl<User> {
             if (user.getId() == id)
                 return user;
             System.out.println("Element with ID " + id + " is found:");
-
-
         }
-        return super.get(id);
+        return null;
     }
 }
 
