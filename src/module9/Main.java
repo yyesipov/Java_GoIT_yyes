@@ -43,19 +43,26 @@ public class Main {
         listOfOrders.add(order9);
         listOfOrders.add(order10);
 
+        Controller controller = new Controller();
+
         //listOfOrders.stream().forEach(System.out::println);
-        Controller.sortPriceDecrease(listOfOrders);
-        Controller.sortPriceIncreaseAndUserCity(listOfOrders);
-        Controller.sortItemNameAndShopAndCity(listOfOrders);
-        Controller.deleteDuplicates(listOfOrders);
-        Controller.listWithoutSomePrice(listOfOrders);
-        Controller.separateListByCurrency(listOfOrders);
-        Controller.separateByCities(listOfOrders);
-        Controller.checkListContainUser(listOfOrders, "Petrov");
-        Controller.deleteUSDorders(listOfOrders);
 
-
-
+        //controller.sortPriceDecrease(listOfOrders);
+        System.out.println(controller.sortPriceDecrease(listOfOrders));
+        //controller.sortPriceIncreaseAndUserCity(listOfOrders);
+        System.out.println(controller.sortItemNameAndShopAndCity(listOfOrders));
+        //controller.sortItemNameAndShopAndCity(listOfOrders);
+        System.out.println(controller.deleteDuplicates(listOfOrders));
+        //controller.deleteDuplicates(listOfOrders);
+        System.out.println(controller.listWithoutSomePrice(listOfOrders));
+        //controller.listWithoutSomePrice(listOfOrders);
+        System.out.println(controller.separateListByCurrency(listOfOrders));
+        //controller.separateListByCurrency(listOfOrders);
+        System.out.println(controller.separateByCities(listOfOrders));
+        //controller.separateByCities(listOfOrders);
+        controller.checkListContainUser(listOfOrders, "Petrov");
+        System.out.println(controller.deleteUSDorders(listOfOrders));
+        //controller.deleteUSDorders(listOfOrders);
 
     }
 }

@@ -2,17 +2,22 @@ package module9;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Controller {
 
-    protected static void sortPriceDecrease(List<Order> listOfOrders) {
-        listOfOrders.stream()
+
+    public List<Order> sortPriceDecrease(List<Order> listOfOrders) {
+        List<Order> spd = listOfOrders.stream()
                 .sorted((a, b) -> b.compareTo(a))
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
+        //spd.stream().forEach(System.out::println);
+        return spd;
     }
 
-    protected static void sortPriceIncreaseAndUserCity(List<Order> listOfOrders) {
-        listOfOrders.stream()
+
+    public List<Order> sortPriceIncreaseAndUserCity(List<Order> listOfOrders) {
+        List<Order> spi = listOfOrders.stream()
                 .sorted((a, b) -> {
                     int res = a.compareTo(b);
                     if (res != 0) {
@@ -20,11 +25,14 @@ public class Controller {
                     } else
                         return a.getUser().getCity().compareTo(b.getUser().getCity());
                 })
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
+        //spi.stream().forEach(System.out::println);
+        return spi;
     }
 
-    protected static void sortItemNameAndShopAndCity(List<Order> listOfOrders) {
-        listOfOrders.stream()
+
+    public List<Order> sortItemNameAndShopAndCity(List<Order> listOfOrders) {
+        List<Order> sin = listOfOrders.stream()
                 .sorted((a, b) -> {
                     int res = a.compareTo(b);
                     if (res != 0) {
@@ -38,25 +46,29 @@ public class Controller {
                         }
                     }
                 })
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
+        //sin.stream().forEach(System.out::println);
+        return sin;
     }
 
-    protected static void deleteDuplicates(List<Order> listOfOrders) {
+    public Set<Order> deleteDuplicates(List<Order> listOfOrders) {
         Set<Order> listWithoutDupl = new HashSet<>(listOfOrders);
-        listWithoutDupl.stream().forEach(System.out::println);
+        //listWithoutDupl.stream().forEach(System.out::println);
+        return listWithoutDupl;
     }
 
-    protected static void listWithoutSomePrice(List<Order> listOfOrders) {
+    public List<Order> listWithoutSomePrice(List<Order> listOfOrders) {
         List<Order> resList = new ArrayList<>();
         listOfOrders.stream().forEach(s -> {
             if (s.getPrice() > 1500) {
                 resList.add(s);
             }
         });
-        resList.stream().forEach(System.out::println);
+        //resList.stream().forEach(System.out::println);
+        return resList;
     }
 
-    protected static void separateListByCurrency(List<Order> listOfOrders) {
+    public List<Order> separateListByCurrency(List<Order> listOfOrders) {
         List<Order> listUAH = new ArrayList<>();
         List<Order> listUSD = new ArrayList<>();
         listOfOrders.stream().forEach(s -> {
@@ -66,11 +78,16 @@ public class Controller {
                 listUSD.add(s);
             }
         });
-        listUAH.stream().forEach(System.out::println);
-        listUSD.stream().forEach(System.out::println);
+        List<Order> listRes = new ArrayList<>();
+        listRes.addAll(listUAH);
+        listRes.addAll(listUSD);
+        //listUAH.stream().forEach(System.out::println);
+        //listUSD.stream().forEach(System.out::println);
+        return listRes;
     }
 
-    protected static void  separateByCities(List<Order> listOfOrders) {
+
+    public Map<String, List<Order>> separateByCities(List<Order> listOfOrders) {
         Map<String, List<Order>> res = new HashMap<>();
         Function<Order, String> getCity = s -> s.getUser().getCity();
         listOfOrders.stream().forEach(s -> {
@@ -79,23 +96,29 @@ public class Controller {
             }
             res.get(getCity.apply(s)).add(s);
         });
-        System.out.println(res);
+        //System.out.println(res);
+        return res;
     }
 
-    protected static void checkListContainUser (List<Order> listOfOrders, String lastName){
-        System.out.println(listOfOrders.stream()
-                .anyMatch(s -> s.getUser().getLastName().equals(lastName)));
-
+    public void checkListContainUser(List<Order> listOfOrders, String lastName) {
+        boolean resOfCheck = listOfOrders.stream()
+                .anyMatch(s -> s.getUser().getLastName().equals(lastName));
+        if (resOfCheck == true) {
+            System.out.println("User " + lastName + " is found");
+        } else {
+            System.out.println("User " + lastName + " not found");
+        }
     }
 
-    protected static void deleteUSDorders(List<Order> listOfOrders){
+    public List<Order> deleteUSDorders(List<Order> listOfOrders) {
         List<Order> result = new ArrayList<>();
         listOfOrders.stream().forEach(s -> {
             if (s.getCurrency() != Currency.USD) {
                 result.add(s);
             }
         });
-        result.stream().forEach(System.out::println);
+        //result.stream().forEach(System.out::println);
+        return result;
     }
 }
 
