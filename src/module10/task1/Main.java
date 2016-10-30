@@ -1,4 +1,4 @@
-package module10;
+package module10.task1;
 
 public class Main {
 
