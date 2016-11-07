@@ -12,7 +12,8 @@ public class Task3 {
 
         Map<String, String> map = new HashMap<>();
         map.put("testword", "Ok!");
-        System.out.println(fileContentMerger(map, "src/module11/task3/testTask3.txt"));
+        
+        fileContentMerger(map, "src/module11/task3/testTask3.txt");
     }
 
     public static File fileContentMerger(Map<String, String> map, String filePath) {
