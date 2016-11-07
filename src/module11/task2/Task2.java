@@ -13,7 +13,7 @@ public class Task2 {
     public static void main(String[] args) {
 
         Map<String, String> map = new HashMap<>();
-        map.put("testword", "TEST");
+        map.put("Strirng replace  test", "___REPLACE____");
         System.out.println(fileContentReplacer(map, "src/module11/task2/testTask2.txt"));
     }
 
