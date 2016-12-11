@@ -1,8 +1,10 @@
 package module5.homework;
 
+import java.util.List;
+
 public interface API {
 
-    Room[]findRoms(int price,int persons,String city, String hotel);
+    List<Room> findRoms(int price, int persons, String city, String hotel);
 
-    Room[] getAllRooms();
+    List<Room> getAllRooms();
 }

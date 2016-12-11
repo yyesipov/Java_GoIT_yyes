@@ -1,41 +1,38 @@
 package module5.homework;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Controller {
 
-    private API apis[] = new API[3];
+    private List<API> apis = new ArrayList<>();
 
-    public Controller(API[] apis) {
+    public Controller(List<API> apis) {
         this.apis = apis;
     }
 
     public Controller() {
         BookingComAPI bookingComAPI = new BookingComAPI();
-        apis[0] = bookingComAPI;
         GoogleAPI googleAPI = new GoogleAPI();
-        apis[1] = googleAPI;
         TripAdvisorAPI tripAdvisorAPI = new TripAdvisorAPI();
-        apis[2] = tripAdvisorAPI;
+
+        apis.add(bookingComAPI);
+        apis.add(googleAPI);
+        apis.add(tripAdvisorAPI);
 
     }
 
-    public Room[] requestRooms(int price, int persons, String city, String hotel) {
+    public List<Room> requestRooms(int price, int persons, String city, String hotel) {
 
-        Room[] roomsArray = new Room[1000];
-        int j = 0;
-        for (int i = 0; i < apis.length; i++) {
-            for (Room room : apis[i].findRoms(price, persons, city, hotel)) {
-                roomsArray[j] = room;
-                j++;
-            }
-        }
+        List<Room> requestRooms = new ArrayList<>();
 
-        Room[] requestRooms = new Room[j];
-        for (int i = 0; i < j; i++) {
-            requestRooms[i] = roomsArray[i];
+
+        for (API api : apis) {
+            requestRooms.addAll(api.findRoms(price, persons, city, hotel));
+
         }
-        System.out.println("\n" + Arrays.toString(requestRooms));
+        System.out.println("\n" + requestRooms);
 
         DAOImpl daoImpl = new DAOImpl();
         for (Room room : requestRooms) {
@@ -45,28 +42,17 @@ public class Controller {
         return requestRooms;
     }
 
-    public Room[] check(API api1, API api2) {
+    public List<Room> check(API api1, API api2) {
 
-        Room[] rooms1 = api1.getAllRooms();
-        Room[] rooms2 = api2.getAllRooms();
-        Room[] roomsEqual = new Room[300];
-
-        int roomsCount = 0;
-        for (int i = 0; i < rooms1.length; i++) {
-            for (int j = 0; j < rooms2.length; j++) {
-                if (rooms1[i].equals(rooms2[j])) {
-                    roomsEqual[roomsCount] = rooms1[i];
-                    roomsCount++;
+        List<Room> checkArray = new ArrayList<>();
+        for (Room roomOfAPI1 : api1.getAllRooms()) {
+            for (Room roomOfAPI2 : api2.getAllRooms()) {
+                if (roomOfAPI1.equals(roomOfAPI2)) {
+                    checkArray.add(roomOfAPI1);
                 }
             }
         }
-
-        Room[] checkArray = new Room[roomsCount];
-
-        for (int i = 0; i < roomsCount; i++) {
-            checkArray[i] = roomsEqual[i];
-        }
-        System.out.println("\n" + Arrays.toString(checkArray));
+        System.out.println("\n" + checkArray);
         return checkArray;
     }
 }
