@@ -87,10 +87,52 @@ public class ConnectDAO {
         preparedStatement.close();
     }
 
+    public static void changeSkill(String sql, int skillID, String name) throws SQLException {
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(2, skillID);
+        preparedStatement.setString(1, name);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public static void addSkill(String sql, int skillID, String name) throws SQLException{
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, skillID);
+        preparedStatement.setString(2, name);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public static void addDelDevSkill(String sql, int developerID, int skillID) throws SQLException{
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, developerID);
+        preparedStatement.setInt(2, skillID);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public static void addElement(String sql, int id, String name, String address) throws SQLException{
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        preparedStatement.setString(2, name);
+        preparedStatement.setString(3, address);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
+
+    public static void changeElement(String sql, int id, String name, String address)throws SQLException {
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(3, id);
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, address);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+    }
 
     public static void closeConnect() throws SQLException {
         connection.close();
     }
+
 
 
 }

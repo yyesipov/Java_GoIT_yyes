@@ -1,8 +1,7 @@
 package moduleEE2.main.factory;
 
 
-
-import main.dao.DeveloperDAO;
+import moduleEE2.main.dao.DeveloperDAO;
 
 import java.sql.Date;
 import java.sql.SQLException;

@@ -2,28 +2,37 @@ package moduleEE2.main.dao;
 
 
 
-import main.model.Developer;
-import main.view.ConsoleHelper;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import moduleEE2.main.model.Developer;
+import moduleEE2.main.view.ConsoleHelper;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class DeveloperDAO {
 
     private List<Developer> listDevelopers = null;
+    private List<String> result = null;
 
+
+    protected List<String> getDeveloperSkills(int id, Connection connection) throws SQLException {
+        String sql = "SELECT skills.name AS skill FROM developers_skills " +
+                "JOIN skills ON developers_skills.skill_id = skills.id " +
+                "WHERE developer_id=?";
+        result = new ArrayList<>();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next())
+            result.add(resultSet.getString("skill"));
+        return result;
+    }
 
     protected List<Developer> readingAllElements() throws SQLException {
         String sql = "SELECT * FROM developers";
-        resultProcessing(sql);
-        return listDevelopers;
-    }
-
-    protected List<Developer> readingTeamsElements(int teamID) throws SQLException {
-        String sql = "SELECT * FROM developers WHERE teamID = " + teamID;
         resultProcessing(sql);
         return listDevelopers;
     }
@@ -53,6 +62,14 @@ public class DeveloperDAO {
         readingAllElements();
         for (Developer developer : listDevelopers) {
             ConsoleHelper.writeMessage(developer.toString());
+        }
+    }
+
+    public void showDeveloperSkills(int id, Connection connection) throws SQLException {
+
+        getDeveloperSkills(id, connection);
+        for (String skill : result) {
+            ConsoleHelper.writeMessage(skill);
         }
     }
 

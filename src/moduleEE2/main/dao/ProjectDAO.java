@@ -1,7 +1,10 @@
 package moduleEE2.main.dao;
 
-import moduleEE2.src.main.model.Project;
-import moduleEE2.src.main.view.ConsoleHelper;
+
+
+
+import moduleEE2.main.model.Project;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,9 +1,9 @@
 package moduleEE2.main;
 
 
-import main.controller.*;
-import main.dao.ConnectDAO;
-import main.view.ConsoleHelper;
+import moduleEE2.main.controller.*;
+import moduleEE2.main.dao.ConnectDAO;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.io.IOException;
 import java.sql.SQLException;

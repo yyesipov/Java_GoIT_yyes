@@ -1,6 +1,8 @@
 package moduleEE2.main.factory;
 
-import main.dao.DeveloperSkillDAO;
+
+
+import moduleEE2.main.dao.DeveloperSkillDAO;
 
 import java.sql.SQLException;
 

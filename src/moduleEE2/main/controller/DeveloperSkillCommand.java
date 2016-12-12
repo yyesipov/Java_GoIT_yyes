@@ -1,9 +1,9 @@
 package moduleEE2.main.controller;
 
-import main.dao.DeveloperSkillDAO;
 
-import main.factory.DevelopersSkillFactory;
-import main.view.ConsoleHelper;
+import moduleEE2.main.dao.DeveloperSkillDAO;
+import moduleEE2.main.factory.DevelopersSkillFactory;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,13 +1,19 @@
 package moduleEE2.main.controller;
 
-import moduleEE2.src.main.dao.ConnectDAO;
-import moduleEE2.src.main.dao.DeveloperDAO;
-import moduleEE2.src.main.factory.DeveloperFactory;
-import moduleEE2.src.main.view.ConsoleHelper;
+
+
+
+import moduleEE2.main.dao.ConnectDAO;
+import moduleEE2.main.dao.DeveloperDAO;
+import moduleEE2.main.factory.DeveloperFactory;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+
+import static moduleEE2.main.dao.ConnectDAO.connection;
+
 
 public class DeveloperCommand implements Command {
     @Override
@@ -25,8 +31,9 @@ public class DeveloperCommand implements Command {
         int salary;
 
 
+
         ConsoleHelper.writeMessage("* * * РАЗРАБОТЧИКИ * * *" + "\n" +
-                "1 - Добавить | 2 - Удалить | 3 - Изменить | 4 - Показать всех | 5 - Найти по ID\n");
+                "1 - Добавить | 2 - Удалить | 3 - Изменить | 4 - Показать всех | 5 - Найти по ID | 6 - Показать навыки разработчика по ID\n");
         int commandNumber = ConsoleHelper.readInt();
 
         switch (commandNumber) {
@@ -85,6 +92,15 @@ public class DeveloperCommand implements Command {
                 ConsoleHelper.writeMessage("Укажите ID разработчика:\n");
                 id = ConsoleHelper.readInt();
                 developerDao.showDeveloper(id);
+                break;
+            case 6:
+                ConsoleHelper.writeMessage("Укажите ID разработчика:\n");
+                id = ConsoleHelper.readInt();
+                ConsoleHelper.writeMessage("Разработчик:");
+                developerDao.showDeveloper(id);
+                ConsoleHelper.writeMessage("Имеет навыки:");
+                developerDao.showDeveloperSkills(id, connection);
+
                 break;
             default:
                 break;

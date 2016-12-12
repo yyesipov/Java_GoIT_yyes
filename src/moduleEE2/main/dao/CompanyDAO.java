@@ -1,7 +1,9 @@
 package moduleEE2.main.dao;
 
-import main.model.Company;
-import main.view.ConsoleHelper;
+
+
+import moduleEE2.main.model.Company;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +28,7 @@ public class CompanyDAO {
 
     public void updateElement(int companyID, String name, String address) throws SQLException {
         String sql = "UPDATE companies SET name = ?, address = ? WHERE id = ?";
-        ConnectDAO.changeCompany(sql, companyID, name, address);
+        ConnectDAO.changeElement(sql, companyID, name, address);
     }
 
     public void deleteElement(int companyID) throws SQLException {

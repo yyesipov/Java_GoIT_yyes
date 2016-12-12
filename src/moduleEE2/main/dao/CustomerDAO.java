@@ -1,7 +1,9 @@
 package moduleEE2.main.dao;
 
-import main.model.Customer;
-import main.view.ConsoleHelper;
+
+
+import moduleEE2.main.model.Customer;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,29 +27,29 @@ public class CustomerDAO {
         return listCustomers;
     }
 
-    public void updateElement(int customerID, String name, String address) throws SQLException {
+    public void updateCustomer(int customerID, String name, String address) throws SQLException {
         String sql = "UPDATE customers SET name = ?, address = ? WHERE id = ?";
-        ConnectDAO.changeCompany(sql, customerID, name, address);
+        ConnectDAO.changeElement(sql, customerID, name, address);
     }
 
-    public void deleteElement(int customerID) throws SQLException {
+    public void deleteCustomer(int customerID) throws SQLException {
         String sql = "DELETE FROM customers WHERE id = ?";
         ConnectDAO.deleteRecord(sql, customerID);
     }
 
-    public void createElement(int ID, String name, String address) throws SQLException {
-        String sql = "INSERT INTO customers VALUES(name = ?, address = ?, id = ?)";
-        ConnectDAO.addElement(sql, ID, name, address);
+    public void createCustomer(int id, String name, String address) throws SQLException {
+        String sql = "INSERT INTO customers VALUES(id = ?, name = ?, address = ?)";
+        ConnectDAO.addElement(sql, id, name, address);
     }
 
-    public void showAllCompanies() throws SQLException {
+    public void showAllCustomers() throws SQLException {
         readingAllElements();
         for (Customer customer : listCustomers) {
             ConsoleHelper.writeMessage(customer.toString());
         }
     }
 
-    public void showCompany(int companyID) throws SQLException {
+    public void showCustomer(int companyID) throws SQLException {
         readingCompaniesElements(companyID);
         for (Customer customer : listCustomers) {
             ConsoleHelper.writeMessage(customer.toString());

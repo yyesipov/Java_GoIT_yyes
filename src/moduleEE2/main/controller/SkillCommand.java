@@ -1,8 +1,10 @@
 package moduleEE2.main.controller;
 
-import main.dao.SkillDAO;
-import main.factory.SkillFactory;
-import main.view.ConsoleHelper;
+
+
+import moduleEE2.main.dao.SkillDAO;
+import moduleEE2.main.factory.SkillFactory;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.io.IOException;
 import java.sql.SQLException;

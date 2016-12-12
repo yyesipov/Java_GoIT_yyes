@@ -1,8 +1,10 @@
 package moduleEE2.main.controller;
 
-import main.dao.CustomerDAO;
-import main.factory.CustomerFactory;
-import main.view.ConsoleHelper;
+
+
+import moduleEE2.main.dao.CustomerDAO;
+import moduleEE2.main.factory.CustomerFactory;
+import moduleEE2.main.view.ConsoleHelper;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -31,13 +33,13 @@ public class CustomerCommand implements Command {
                 ConsoleHelper.writeMessage("Укажите адрес заказчика:\n");
                 address = ConsoleHelper.readString();
                 customerFactory.createCustomer(customerID, name, address);
-                customerDAO.showCompany(customerID);
+                customerDAO.showCustomer(customerID);
                 ConsoleHelper.writeMessage("\nЗаказчик создан!\n");
                 break;
             case 2:
                 ConsoleHelper.writeMessage("Укажите ID заказчика:\n");
                 customerID = ConsoleHelper.readInt();
-                customerDAO.deleteElement(customerID);
+                customerDAO.deleteCustomer(customerID);
                 ConsoleHelper.writeMessage("\nЗаказчик удален!\n");
                 break;
             case 3:
@@ -47,16 +49,16 @@ public class CustomerCommand implements Command {
                 name = ConsoleHelper.readString();
                 ConsoleHelper.writeMessage("Укажите адрес заказчика:\n");
                 address = ConsoleHelper.readString();
-                customerDAO.updateElement(customerID, name, address);
+                customerDAO.updateCustomer(customerID, name, address);
                 ConsoleHelper.writeMessage("\nИзменения выполнены!\n");
                 break;
             case 4:
-                customerDAO.showAllCompanies();
+                customerDAO.showAllCustomers();
                 break;
             case 5:
                 ConsoleHelper.writeMessage("Укажите ID заказчика:\n");
                 customerID = ConsoleHelper.readInt();
-                customerDAO.showCompany(customerID);
+                customerDAO.showCustomer(customerID);
         }
     }
 }
