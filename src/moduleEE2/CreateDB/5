@@ -1,0 +1,19 @@
+WITH T
+AS (
+    SELECT
+      COMPANIES.NAME                       company,
+      CUSTOMERS.NAME                       customer,
+      p.COST                               proj_cost,
+      (SELECT MIN(COST)
+       FROM PROJECTS p1
+       WHERE p1.COMPANY_ID = p.COMPANY_ID) min_proj_cost
+    FROM PROJECTS p, COMPANIES, CUSTOMERS
+    WHERE p.COMPANY_ID = COMPANIES.ID
+          AND p.CUSTOMER_ID = CUSTOMERS.ID
+          AND p.FINISH IS NULL
+    ORDER BY company)
+SELECT
+  company,
+  customer
+FROM T
+WHERE min_proj_cost = proj_cost;
