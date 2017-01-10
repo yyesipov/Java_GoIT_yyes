@@ -1,0 +1,46 @@
+ALTER TABLE developers
+  ADD SALARY REAL;
+INSERT INTO developers (SALARY) VALUES (5100);
+INSERT INTO developers (SALARY) VALUES (6000);
+INSERT INTO developers (SALARY) VALUES (3000);
+INSERT INTO developers (SALARY) VALUES (3500);
+INSERT INTO developers (SALARY) VALUES (3700);
+INSERT INTO developers (SALARY) VALUES (2900);
+INSERT INTO developers (SALARY) VALUES (7000);
+INSERT INTO developers (SALARY) VALUES (5000);
+INSERT INTO developers (SALARY) VALUES (4000);
+INSERT INTO developers (SALARY) VALUES (5800);
+INSERT INTO developers (SALARY) VALUES (6700);
+INSERT INTO developers (SALARY) VALUES (6200);
+INSERT INTO developers (SALARY) VALUES (2800);
+INSERT INTO developers (SALARY) VALUES (3500);
+INSERT INTO developers (SALARY) VALUES (1700);
+INSERT INTO developers (SALARY) VALUES (2500);
+INSERT INTO developers (SALARY) VALUES (1900);
+INSERT INTO developers (SALARY) VALUES (1700);
+INSERT INTO developers (SALARY) VALUES (3300);
+INSERT INTO developers (SALARY) VALUES (2700);
+
+/* another way:
+
+update developers SET SALARY = 5100 WHERE ID=1;
+update developers SET SALARY = 6000 WHERE ID=2;
+update developers SET SALARY = 3000 WHERE ID=3;
+update developers SET SALARY = 3500 WHERE ID=4;
+update developers SET SALARY = 3700 WHERE ID=5;
+update developers SET SALARY = 2900 WHERE ID=6;
+update developers SET SALARY = 7000 WHERE ID=7;
+update developers SET SALARY = 5000 WHERE ID=8;
+update developers SET SALARY = 4000 WHERE ID=9;
+update developers SET SALARY = 5800 WHERE ID=10;
+update developers SET SALARY = 6700 WHERE ID=11;
+update developers SET SALARY = 6200 WHERE ID=12;
+update developers SET SALARY = 2800 WHERE ID=13;
+update developers SET SALARY = 3500 WHERE ID=14;
+update developers SET SALARY = 1700 WHERE ID=15;
+update developers SET SALARY = 2500 WHERE ID=16;
+update developers SET SALARY = 1900 WHERE ID=17;
+update developers SET SALARY = 1700 WHERE ID=18;
+update developers SET SALARY = 3300 WHERE ID=19;
+update developers SET SALARY = 2700 WHERE ID=20;
+*/
